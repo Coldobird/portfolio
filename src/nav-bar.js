@@ -74,41 +74,49 @@ function NavBarList() {
 
       <nav-bar-list-section>
         <nav-bar-title>Projects</nav-bar-title>
-        <nav-bar-subtitle>Work</nav-bar-subtitle>
-        <nav-bar-button>
-          BELA - Web app for code visualization
-        </nav-bar-button>
-        <nav-bar-button>
-          BELA - Landing page
-        </nav-bar-button>
-        <nav-bar-subtitle>Personal</nav-bar-subtitle>
-        <nav-bar-button>
-          Scout Membership Check- Personal
-        </nav-bar-button>
+        <nav-bar-sublist>
+          <nav-bar-subtitle>Work</nav-bar-subtitle>
+          <nav-bar-sublist>
+            <nav-bar-button>
+              BELA - Web app for code visualization
+            </nav-bar-button>
+            <nav-bar-button>
+              BELA - Landing page
+            </nav-bar-button>
+          </nav-bar-sublist>
+          <nav-bar-subtitle>Personal</nav-bar-subtitle>
+          <nav-bar-sublist>
+            <nav-bar-button>
+              Scout Membership Check- Personal
+            </nav-bar-button>
+          </nav-bar-sublist>
+        </nav-bar-sublist>
       </nav-bar-list-section>
 
       <nav-bar-list-section>
         <nav-bar-title>Skills - Tools</nav-bar-title>
-        <skills-list>
-          <skills-title>Development</skills-title>
-          <skills-item>• HTML</skills-item>
-          <skills-item>• CSS</skills-item>
-          <skills-item>• JavaScript</skills-item>
-          <skills-item>• React</skills-item>
-          <skills-item>• Git</skills-item>
-        </skills-list>
-        <skills-list>
-          <skills-title>Media</skills-title>
-          <skills-item>• After Effects</skills-item>
-          <skills-item>• Premier Pro</skills-item>
-        </skills-list>
-        <skills-list>
-          <skills-title>Design</skills-title>
-          <skills-item>• Figma</skills-item>
-          <skills-item>• Illustrator</skills-item>
-          <skills-item>• Photoshop</skills-item>
-          <skills-item>• Canva</skills-item>
-        </skills-list>
+        <skills-list-container>
+          <skills-list>
+            <skills-title>Development</skills-title>
+            <skills-item>• HTML</skills-item>
+            <skills-item>• CSS</skills-item>
+            <skills-item>• JavaScript</skills-item>
+            <skills-item>• React</skills-item>
+            <skills-item>• Git</skills-item>
+          </skills-list>
+          <skills-list>
+            <skills-title>Design</skills-title>
+            <skills-item>• Figma</skills-item>
+            <skills-item>• Illustrator</skills-item>
+            <skills-item>• Photoshop</skills-item>
+            <skills-item>• Canva</skills-item>
+          </skills-list>
+          <skills-list>
+            <skills-title>Media</skills-title>
+            <skills-item>• After Effects</skills-item>
+            <skills-item>• Premier Pro</skills-item>
+          </skills-list>
+        </skills-list-container>
       </nav-bar-list-section>
     </nav-bar-list>
   )
