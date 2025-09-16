@@ -53,22 +53,40 @@ function MyInfo() {
   )
 }
 
-function NavBarList() {
+function NavButton({ id, selected, onSelect, children }) {
+  return (
+    <nav-bar-button
+      className={selected ? 'selected' : ''}
+      onClick={() => onSelect(id)}
+      role="button" tabIndex={0}
+      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onSelect(id)}
+    >
+      {children}
+    </nav-bar-button>
+  );
+}
+
+function NavBarList({ selected, onSelect }) {
   return (
     <nav-bar-list>
       <nav-bar-list-section>
-        <nav-bar-button className='selected'>Home</nav-bar-button>
+        <NavButton id="home" selected={selected === 'home'} onSelect={onSelect}>
+          Home
+        </NavButton>
       </nav-bar-list-section>
 
       <nav-bar-list-section>
         <nav-bar-title>Experience</nav-bar-title>
-
         <nav-bar-sublist>
-          <nav-bar-button>
+          <NavButton
+            id="exp:jux"
+            selected={selected === 'exp:jux'}
+            onSelect={onSelect}
+          >
             Company - Jux <br />
             Front-End Developer & Designer <br />
             Jan 2020 - Present
-          </nav-bar-button>
+          </NavButton>
         </nav-bar-sublist>
       </nav-bar-list-section>
 
@@ -77,18 +95,32 @@ function NavBarList() {
         <nav-bar-sublist>
           <nav-bar-subtitle>Work</nav-bar-subtitle>
           <nav-bar-sublist>
-            <nav-bar-button>
+            <NavButton
+              id="proj:bela-app"
+              selected={selected === 'proj:bela-app'}
+              onSelect={onSelect}
+            >
               BELA - Web app for code visualization
-            </nav-bar-button>
-            <nav-bar-button>
+            </NavButton>
+
+            <NavButton
+              id="proj:bela-landing"
+              selected={selected === 'proj:bela-landing'}
+              onSelect={onSelect}
+            >
               BELA - Landing page
-            </nav-bar-button>
+            </NavButton>
           </nav-bar-sublist>
+
           <nav-bar-subtitle>Personal</nav-bar-subtitle>
           <nav-bar-sublist>
-            <nav-bar-button>
+            <NavButton
+              id="proj:scout-check"
+              selected={selected === 'proj:scout-check'}
+              onSelect={onSelect}
+            >
               Scout Membership Check- Personal
-            </nav-bar-button>
+            </NavButton>
           </nav-bar-sublist>
         </nav-bar-sublist>
       </nav-bar-list-section>
@@ -119,19 +151,17 @@ function NavBarList() {
         </skills-list-container>
       </nav-bar-list-section>
     </nav-bar-list>
-  )
+  );
 }
 
-function NavBar() {
+export default function NavBar({ selected, onSelect }) {
   return (
     <nav-bar>
       <TitleTextName />
       <TitleTextSurname />
       <TitleTextTitle />
       <MyInfo />
-      <NavBarList />
+      <NavBarList selected={selected} onSelect={onSelect} />
     </nav-bar>
   );
 }
-
-export default NavBar;

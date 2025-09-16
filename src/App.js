@@ -1,15 +1,17 @@
+import { useState } from "react";
 import NavBar from "./nav-bar";
 import CrtEffect from "./CrtEffect/CrtEffect";
+import Content from "./content";
 
-function App() {
+export default function App() {
+  const [selected, setSelected] = useState("home"); // 🔑 current selection
+
   return (
     <app-container className="App">
       <CrtEffect>
       </CrtEffect>
-      <NavBar />
-      <content></content>
+      <NavBar selected={selected} onSelect={setSelected} />
+      <Content selected={selected} />
     </app-container>
   );
 }
-
-export default App;

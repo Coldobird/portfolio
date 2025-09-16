@@ -197,7 +197,7 @@ nav-bar-sublist nav-bar-button:first-child {
 
 nav-bar-button.selected::before {
   content: ">";
-  width: 14px;
+  width: 16px;
 }
 
 nav-bar-button:hover {
@@ -249,9 +249,4 @@ p.location::after {
   content: ",";
   position: absolute;
   left: 0;
-}
-
-content {
-  width: 100%;
-  border-left: #33FF33 1px solid;
 }

@@ -1,0 +1,13 @@
+content {
+  width: 100%;
+  border-left: #33FF33 1px solid;
+  padding: 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+content a {
+  text-decoration: underline #33FF33 1px solid;
+  cursor: pointer;
+}
