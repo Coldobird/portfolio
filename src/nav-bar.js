@@ -33,9 +33,9 @@ function TitleTextTitle() {
   return (
     <pre className='title'>
       {String.raw`
-____  __.__  __  __ ____  .___. _.  _. .___
-||== ((   )) ||\\||  ||   ||==  ||\\|| ||  )
-||    \\_//  || \||  ||   ||__. || \|| ||_/                                                  
+____ ___   __.__  __  __ ____   .___. _.  _. .___
+||== |_)) ((   )) ||\\||  ||    ||==  ||\\|| ||  )
+||   | \\  \\_//  || \||  ||    ||__. || \|| ||_/
 `}
     </pre>
   );
@@ -44,7 +44,7 @@ ____  __.__  __  __ ____  .___. _.  _. .___
 function MyInfo() {
   return (
     <my-info>
-      <p className="location">Curitiba,brazil</p>
+      <p className="location">Curitiba,Brazil</p>
       <social-buttons>
         <img className="social-button" src={githubIcon}></img>
         <img className="social-button" src={linkedInIcon}></img>
