@@ -1,6 +1,6 @@
 content {
   width: 100%;
-  border-left: #33FF33 1px solid;
+  border-left: var(--main) 1px solid;
   padding: 42px;
   display: flex;
   flex-direction: column;
@@ -8,6 +8,6 @@ content {
 }
 
 content a {
-  text-decoration: underline #33FF33 1px solid;
+  text-decoration: underline var(--main) 1px solid;
   cursor: pointer;
 }

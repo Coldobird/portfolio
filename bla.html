@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Retro Clickable Signifiers – Demos</title>
+<style>
+  /* ===== Retro baseline ===== */
+  :root{
+    --bg: #050805;
+    --green: #2bf52b;
+    --green-dim:#1fa21f;
+    --scanline: linear-gradient(rgba(255,255,255,.06) 50%, transparent 50%);
+  }
+  html,body{height:100%}
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--green);
+    font: 16px/1.4 "VT323","Courier New",monospace;
+    text-shadow: 0 0 6px rgba(43,245,43,.25);
+  }
+  .wrap{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,.0), rgba(0,0,0,.0) 1px, rgba(255,255,255,.03) 2px, rgba(0,0,0,.0) 3px);
+  }
+  h1,h2{margin:.2em 0 .4em; letter-spacing:.02em}
+  h1{font-size:32px}
+  h2{font-size:22px; color:var(--green)}
+  .desc{color:var(--green-dim)}
+  .demo{
+    border: 1px solid rgba(43,245,43,.35);
+    padding: 12px;
+    margin: 18px 0 28px;
+    position: relative;
+  }
+  .demo .label{
+    position:absolute; top:-10px; left:8px; padding:0 6px; background:var(--bg);
+    color:var(--green-dim)
+  }
+  a{color:inherit}
+
+  /* Shared menu item class used across demos */
+  .menu-item{
+    display:block;
+    padding:.35rem .5rem;
+    text-decoration:none;
+    color:var(--green);
+    position:relative;
+    cursor: default;               /* keep arrow cursor; we add glow instead */
+  }
+  .menu-item:focus-visible{outline:1px solid var(--green)}
+  .columns{
+    display:grid; gap:16px;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  }
+  .group{border:1px dashed rgba(43,245,43,.25); padding:8px}
+  .group h3{margin:.2em 0 .4em; font-size:18px}
+
+  /* Idea 1: Inverse video on hover/focus */
+  .inverse .menu-item:hover,
+  .inverse .menu-item:focus-visible{
+    background: var(--green);
+    color: var(--bg);
+    text-shadow:none;
+  }
+
+  /* Idea 2: Caret/arrow bullets (toggle-able) */
+  .caret .bullet{display:inline-block; width:1ch; margin-right:.4ch; color:var(--green-dim)}
+  .caret .menu-item[aria-expanded="true"] .bullet::after{content:"▾"}
+  .caret .menu-item[aria-expanded="false"] .bullet::after{content:"▸"}
+
+  /* Idea 3: Box-drawing hit areas */
+  .boxed .menu-item::before,
+  .boxed .menu-item::after{
+    content:"";
+    position:absolute; left:.25rem; right:.25rem; pointer-events:none; color:var(--green-dim);
+  }
+  .boxed .menu-item::before{content:"┌────────────────────────┐"; top:-.15rem; opacity:.18}
+  .boxed .menu-item::after {content:"└────────────────────────┘"; bottom:-.15rem; opacity:.18}
+
+  /* Idea 4: Status bar (updated via JS) */
+  .statusbar{
+    position: fixed; left:0; right:0; bottom:0;
+    background:#061006; color:var(--green);
+    border-top:1px solid rgba(43,245,43,.35);
+    padding:6px 10px; font-size:18px;
+  }
+  .statusbar .hint{color:var(--green-dim)}
+
+  /* Idea 5: Monochrome hierarchy */
+  .mono .static{color:var(--green-dim); opacity:.8}
+  .mono .menu-item{color:var(--green)}
+
+  /* Idea 6: Blinking cursor on hover/focus */
+  @keyframes blink{50%{opacity:0}}
+  .blink .cursor{display:none}
+  .blink .menu-item:hover .cursor,
+  .blink .menu-item:focus-visible .cursor{
+    display:inline-block; width:.6ch; height:1em; margin-left:.2ch; vertical-align:-2px;
+    background: currentColor; animation: blink 1s step-end infinite;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .blink .menu-item:hover .cursor,
+    .blink .menu-item:focus-visible .cursor{animation:none}
+  }
+
+  /* Idea 7: Row-wide click targets */
+  .rowwide .list{display:grid; gap:6px}
+  .rowwide .menu-item{border-left:2px solid rgba(43,245,43,.25)}
+  .rowwide .menu-item:hover{border-left-color: var(--green)}
+
+  /* Idea 8: Keyboard navigation (visual focus kept retro) */
+  .kbd .menu-item:focus-visible{
+    background: rgba(43,245,43,.15);
+    outline:1px dashed var(--green);
+    outline-offset:0;
+  }
+
+  /* Idea 9: Pointer “glow” */
+  .glow .menu-item:hover,
+  .glow .menu-item:focus-visible{
+    box-shadow: inset 0 0 0 1px rgba(43,245,43,.5), 0 0 10px rgba(43,245,43,.35);
+  }
+
+  /* Small helper styles */
+  .divider{height:1px; background:rgba(43,245,43,.25); margin:10px 0}
+  .kbdhelp{color:var(--green-dim); font-size:18px}
+  button.reset{
+    background:transparent; color:var(--green); border:1px solid rgba(43,245,43,.35);
+    font: inherit; padding:4px 8px; cursor:pointer;
+  }
+  button.reset:hover{background:rgba(43,245,43,.1)}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Retro Clickable Signifiers</h1>
+    <p class="desc">Each box below isolates one idea while keeping the old PC/terminal vibe.</p>
+
+    <!-- Idea 1 -->
+    <section class="demo inverse" id="idea1">
+      <span class="label">Idea 1 · Inverse video on hover/focus</span>
+      <div class="group">
+        <a href="#" class="menu-item">Open BELA project</a>
+        <a href="#" class="menu-item">Landing page</a>
+        <a href="#" class="menu-item">Scouts membership check</a>
+      </div>
+    </section>
+
+    <!-- Idea 2 -->
+    <section class="demo caret" id="idea2">
+      <span class="label">Idea 2 · Caret / Arrow bullets</span>
+      <div class="group">
+        <a href="#" class="menu-item" aria-expanded="false">
+          <span class="bullet"></span> Projects
+        </a>
+        <a href="#" class="menu-item" aria-expanded="true">
+          <span class="bullet"></span> Work
+        </a>
+        <a href="#" class="menu-item" aria-expanded="false">
+          <span class="bullet"></span> Personal
+        </a>
+      </div>
+    </section>
+
+    <!-- Idea 3 -->
+    <section class="demo boxed" id="idea3">
+      <span class="label">Idea 3 · Box-drawing hit areas</span>
+      <div class="group">
+        <a href="#" class="menu-item">BELA – Web app for code visualization</a>
+        <a href="#" class="menu-item">BELA – Landing page</a>
+        <a href="#" class="menu-item">Resume (TXT)</a>
+      </div>
+    </section>
+
+    <!-- Idea 4 -->
+    <section class="demo" id="idea4">
+      <span class="label">Idea 4 · Status bar hint</span>
+      <div class="group status-demo">
+        <a href="#" class="menu-item status-item" data-hint="Open project · Enter">BELA</a>
+        <a href="#" class="menu-item status-item" data-hint="View landing page · Enter">Landing page</a>
+        <a href="#" class="menu-item status-item" data-hint="Open personal project · Enter">Scout check</a>
+      </div>
+      <div class="kbdhelp">Hover/focus items to see the status bar update.</div>
+    </section>
+
+    <!-- Idea 5 -->
+    <section class="demo mono" id="idea5">
+      <span class="label">Idea 5 · Monochrome hierarchy (dim static vs bright interactive)</span>
+      <div class="columns">
+        <div>
+          <div class="static">Experience</div>
+          <div class="static">Front-End Developer — Jux (2020—Present)</div>
+          <div class="divider"></div>
+          <a href="#" class="menu-item">Open portfolio</a>
+          <a href="#" class="menu-item">Email me</a>
+        </div>
+        <div>
+          <div class="static">Skills</div>
+          <div class="static">HTML · CSS · JS · React · Git</div>
+          <div class="divider"></div>
+          <a href="#" class="menu-item">View selected work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Idea 6 -->
+    <section class="demo blink" id="idea6">
+      <span class="label">Idea 6 · Blinking cursor on hover</span>
+      <div class="group">
+        <a href="#" class="menu-item">Open README<span class="cursor" aria-hidden="true"></span></a>
+        <a href="#" class="menu-item">Download CV<span class="cursor" aria-hidden="true"></span></a>
+        <a href="#" class="menu-item">Contact<span class="cursor" aria-hidden="true"></span></a>
+      </div>
+    </section>
+
+    <!-- Idea 7 -->
+    <section class="demo rowwide" id="idea7">
+      <span class="label">Idea 7 · Row-wide click targets</span>
+      <div class="group list">
+        <a href="#" class="menu-item">▶ Row is fully clickable</a>
+        <a href="#" class="menu-item">▶ No “tiny link” hunting</a>
+        <a href="#" class="menu-item">▶ Easier for touch users</a>
+      </div>
+    </section>
+
+    <!-- Idea 8 -->
+    <section class="demo kbd" id="idea8">
+      <span class="label">Idea 8 · Keyboard navigation (↑/↓ + Enter)</span>
+      <div class="group" id="kbd-list" role="listbox" aria-label="Keyboard demo">
+        <a href="#" class="menu-item" tabindex="0" role="option">First item</a>
+        <a href="#" class="menu-item" tabindex="-1" role="option">Second item</a>
+        <a href="#" class="menu-item" tabindex="-1" role="option">Third item</a>
+      </div>
+      <div class="kbdhelp">Use ↑/↓ to move, Enter/Space to “activate”.</div>
+    </section>
+
+    <!-- Idea 9 -->
+    <section class="demo glow" id="idea9">
+      <span class="label">Idea 9 · Pointer glow (keep arrow cursor)</span>
+      <div class="group">
+        <a href="#" class="menu-item">Projects</a>
+        <a href="#" class="menu-item">About</a>
+        <a href="#" class="menu-item">Contact</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Global status bar (Idea 4 uses this) -->
+  <div class="statusbar" role="status" aria-live="polite">
+    <span class="hint">TIP:</span> Hover items to see hints · Use ↑/↓ and Enter
+  </div>
+
+<script>
+  // ===== Idea 4: status bar updates =====
+  const statusBar = document.querySelector('.statusbar');
+  document.querySelectorAll('.status-item').forEach(el => {
+    const hint = el.getAttribute('data-hint') || 'Ready';
+    const show = () => statusBar.innerHTML =
+      `<span class="hint">HINT:</span> ${hint}`;
+    const reset = () => statusBar.innerHTML =
+      `<span class="hint">TIP:</span> Hover items to see hints · Use ↑/↓ and Enter`;
+    el.addEventListener('mouseenter', show);
+    el.addEventListener('focus', show);
+    el.addEventListener('mouseleave', reset);
+    el.addEventListener('blur', reset);
+  });
+
+  // ===== Idea 8: simple keyboard navigation =====
+  (function(){
+    const list = document.getElementById('kbd-list');
+    const items = [...list.querySelectorAll('.menu-item')];
+
+    function focusIndex(i){
+      items.forEach((a,idx)=>a.setAttribute('tabindex', idx===i? '0':'-1'));
+      items[i].focus();
+    }
+    let idx = 0;
+    items[0].focus();
+
+    list.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowDown'){ e.preventDefault(); idx = (idx+1)%items.length; focusIndex(idx); }
+      if(e.key==='ArrowUp'){ e.preventDefault(); idx = (idx-1+items.length)%items.length; focusIndex(idx); }
+      if(e.key==='Home'){ e.preventDefault(); idx=0; focusIndex(idx); }
+      if(e.key==='End'){ e.preventDefault(); idx=items.length-1; focusIndex(idx); }
+      if(e.key==='Enter' || e.key===' '){
+        e.preventDefault();
+        // Demo "activation" feedback via status bar
+        statusBar.innerHTML = `<span class="hint">OPEN:</span> ${items[idx].textContent.trim()} (demo)`;
+      }
+    });
+  })();
+</script>
+</body>
+</html>

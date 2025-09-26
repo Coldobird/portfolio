@@ -1,10 +1,10 @@
 crt-container {
+  z-index: -1;
   position: absolute;
   min-height: 100vh;
   min-width: 100vw;
   top: 0;
   overflow: auto;
-  z-index: 100;
   display: block;
   pointer-events: none;
 }
@@ -22,7 +22,7 @@ crt-background {
       rgba(0, 0, 0, 0) 2px,
       rgba(0, 0, 0, 0) 3px);
   background-blend-mode: multiply;
-  animation: crt-roll 30s linear infinite;
+  animation: crt-roll 120s linear infinite;
   z-index: 1;
   pointer-events: none;
 }
@@ -40,6 +40,7 @@ crt-grain {
 }
 
 crt-content {
+  pointer-events: none;
   position: relative;
   z-index: 3;
   display: block;
