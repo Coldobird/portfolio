@@ -15,17 +15,18 @@ body {
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5
+  line-height: 1.5;
 }
 
 ul,
 ol {
-  list-style: none
+  list-style: none;
 }
 
 a {
   text-decoration: none;
-  color: inherit
+  color: inherit;
+  user-select: none;
 }
 
 img,
@@ -214,6 +215,26 @@ nav-bar-button {
   padding: 8px 10px;
   min-height: 36px;
   align-items: center;
+  user-select: none;
+}
+
+@keyframes ativatePulse {
+
+  0%,
+  10%,
+  30%,
+  70% {
+    background-color: var(--main-dark);
+    box-shadow: 0 0 6px 1px transparent;
+  }
+
+  5%,
+  20%,
+  50%,
+  100% {
+    background-color: var(--main);
+    box-shadow: 0 0 6px 1px var(--glow-strong);
+  }
 }
 
 nav-bar-button::after {
@@ -230,6 +251,7 @@ nav-bar-button::after {
 nav-bar-button.selected::after {
   background-color: var(--main);
   box-shadow: 0 0 6px 1px var(--glow-strong);
+  animation: ativatePulse .2s linear;
 }
 
 nav-bar-button#home {
@@ -287,10 +309,21 @@ p.location::before {
   position: absolute;
   left: 0;
   bottom: 5px;
+  transition: all 0.15s ease-out;
 }
 
 p.location::after {
   content: ",";
   position: absolute;
   left: 0;
+  bottom: 2px;
+  transition: all 0.2s ease-out;
+}
+
+p.location:hover::after {
+  bottom: -2px;
+}
+
+p.location:hover::before {
+  bottom: 0px;
 }
