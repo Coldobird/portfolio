@@ -68,6 +68,7 @@ h6 {
 
 :root {
   --main: hsl(120, 73%, 54%);
+  --main-mid: hsla(120, 73%, 30%);
   --main-dark: hsl(120, 73%, 14%);
   --glow: #33FF3330;
   --glow-strong: #33FF3360;
@@ -195,6 +196,12 @@ nav-bar-sublist {
 
 nav-bar-sublist+nav-bar-subtitle {
   padding-top: 16px;
+}
+
+nav-bar-title,
+nav-bar-subtitle,
+skills-list-container {
+  color: var(--main-mid);
 }
 
 nav-bar-title {
