@@ -42,98 +42,147 @@ ____ ___   __.__  __  __ ____   .___. _.  _. .___
 }
 
 function MyInfo() {
-  const pathRef2 = useRef(null);
-  const linkedinOriginaPath = "2.93 22 4.4 22 4.4 17.6 4.4 8.8 4.4 7.33 4.4 4.4 7.33 4.4 7.33 7.33 4.4 7.33 4.4 8.8 7.33 8.8 7.33 17.6 8.8 17.6 8.8 8.8 11.73 8.8 11.73 10.27 13.2 10.27 13.2 8.8 16.13 8.8 16.13 10.27 17.6 10.27 17.6 17.6 14.67 17.6 14.67 11.73 11.73 11.73 11.73 17.6 8.8 17.6 7.33 17.6 4.4 17.6 4.4 22 19.07 22 19.07 20.53 20.53 20.53 20.53 19.07 22 19.07 22 2.93 20.53 2.93 20.53 1.47 19.07 1.47 19.07 0 2.93 0 2.93 1.47 1.47 1.47 1.47 2.93 0 2.93 0 19.07 1.47 19.07 1.47 20.53 2.93 20.53 2.93 22";
-  const linkedinHoverPath = "2.93 22 4.4 22 4.4 18.83 4.4 10.03 4.84 5.22 4.84 3.18 6.89 3.18 6.89 5.22 4.84 5.22 4.4 10.03 7.33 10.03 7.33 18.83 8.8 18.83 8.8 10.03 11.73 10.03 11.73 11.49 13.2 11.49 13.2 10.03 16.13 10.03 16.13 11.49 17.6 11.49 17.6 18.83 14.67 18.83 14.67 12.96 11.73 12.96 11.73 18.83 8.8 18.83 7.33 18.83 4.4 18.83 4.4 22 19.07 22 19.07 20.53 20.53 20.53 20.53 19.07 22 19.07 22 2.93 20.53 2.93 20.53 1.47 19.07 1.47 19.07 0 2.93 0 2.93 1.47 1.47 1.47 1.47 2.93 0 2.93 0 19.07 1.47 19.07 1.47 20.53 2.93 20.53 2.93 22";
+  const linkedinRef = useRef(null);
+  const githubRef = useRef(null);
 
-  const githubPathRef = useRef(null);
-  const githubOriginaPath = "5.87 22 8.8 22 8.8 19.07 7.43 19.07 5.87 19.07 5.87 17.6 4.4 17.6 4.4 16.13 5.87 16.13 5.87 17.6 7.46 17.6 10.27 17.6 10.27 16.13 7.33 16.15 7.33 14.67 5.87 14.67 5.87 13.2 4.4 13.2 4.4 8.8 5.87 8.8 5.87 7.33 4.4 7.33 4.4 5.87 5.92 5.87 7.33 5.87 7.33 7.33 8.8 7.33 8.8 5.87 13.2 5.87 13.2 7.33 14.67 7.33 14.67 5.87 16.14 5.87 17.6 5.87 17.6 7.33 16.13 7.33 16.13 8.8 17.6 8.8 17.6 13.2 16.13 13.2 16.13 14.67 14.67 14.67 14.67 16.13 11.73 16.13 11.73 17.6 13.2 17.6 13.2 22 16.13 22 16.13 20.53 17.6 20.53 17.6 19.07 19.07 19.07 19.07 17.6 20.53 17.6 20.53 16.13 22 16.13 22 7.33 20.53 7.33 20.53 4.4 17.6 4.4 17.6 1.47 14.67 1.47 14.67 0 7.33 0 7.33 1.47 4.4 1.47 4.4 2.93 2.93 2.93 2.93 4.4 1.47 4.4 1.47 7.33 0 7.33 0 16.13 1.47 16.13 1.47 17.6 2.93 17.6 2.93 19.07 4.4 19.07 4.4 20.53 5.87 20.53 5.87 22";
-  const githubHoverPath = "5.87 22 8.8 22 8.8 19.07 7.43 19.07 5.87 19.07 5.86 20.45 4.4 20.45 4.4 18.98 5.87 18.98 5.87 17.6 7.46 17.6 10.27 17.6 10.25 15.69 7.37 15.15 7.66 13.69 6.22 13.41 6.5 11.97 5.06 11.69 5.9 7.38 7.34 7.66 7.62 6.22 6.18 5.94 6.46 4.5 7.95 4.79 9.33 5.06 9.05 6.5 10.49 6.78 10.77 5.34 15.09 6.18 14.81 7.62 16.25 7.9 16.53 6.46 17.98 6.74 19.41 7.02 19.13 8.46 17.69 8.18 17.41 9.61 18.85 9.89 18.01 14.21 16.57 13.93 16.29 15.37 14.85 15.09 14.57 16.53 11.69 15.97 11.73 17.6 13.2 17.6 13.2 22 16.13 22 16.13 20.53 17.6 20.53 17.6 19.07 19.07 19.07 19.07 17.6 20.53 17.6 20.53 16.13 22 16.13 22 7.33 20.53 7.33 20.53 4.4 17.6 4.4 17.6 1.47 14.67 1.47 14.67 0 7.33 0 7.33 1.47 4.4 1.47 4.4 2.93 2.93 2.93 2.93 4.4 1.47 4.4 1.47 7.33 0 7.33 0 16.13 1.47 16.13 1.47 17.6 2.93 17.6 2.93 19.07 4.4 19.07 4.4 20.53 5.87 20.53 5.87 22"
+  const linkedinOriginal = "2.93 22 4.4 22 4.4 17.6 4.4 8.8 4.4 7.33 4.4 4.4 7.33 4.4 7.33 7.33 4.4 7.33 4.4 8.8 7.33 8.8 7.33 17.6 8.8 17.6 8.8 8.8 11.73 8.8 11.73 10.27 13.2 10.27 13.2 8.8 16.13 8.8 16.13 10.27 17.6 10.27 17.6 17.6 14.67 17.6 14.67 11.73 11.73 11.73 11.73 17.6 8.8 17.6 7.33 17.6 4.4 17.6 4.4 22 19.07 22 19.07 20.53 20.53 20.53 20.53 19.07 22 19.07 22 2.93 20.53 2.93 20.53 1.47 19.07 1.47 19.07 0 2.93 0 2.93 1.47 1.47 1.47 1.47 2.93 0 2.93 0 19.07 1.47 19.07 1.47 20.53 2.93 20.53 2.93 22";
+  const linkedinHover = "2.93 22 4.4 22 4.4 18.83 4.4 10.03 4.84 5.22 4.84 3.18 6.89 3.18 6.89 5.22 4.84 5.22 4.4 10.03 7.33 10.03 7.33 18.83 8.8 18.83 8.8 10.03 11.73 10.03 11.73 11.49 13.2 11.49 13.2 10.03 16.13 10.03 16.13 11.49 17.6 11.49 17.6 18.83 14.67 18.83 14.67 12.96 11.73 12.96 11.73 18.83 8.8 18.83 7.33 18.83 4.4 18.83 4.4 22 19.07 22 19.07 20.53 20.53 20.53 20.53 19.07 22 19.07 22 2.93 20.53 2.93 20.53 1.47 19.07 1.47 19.07 0 2.93 0 2.93 1.47 1.47 1.47 1.47 2.93 0 2.93 0 19.07 1.47 19.07 1.47 20.53 2.93 20.53 2.93 22";
 
-  const resetAnimation = (originalPath, pathRef, key) => {
-    tweenRefs?.current[key]?.kill();
-    gsap.killTweensOf(pathRef?.current);
-    tweenRefs.current[key] = gsap.to(pathRef?.current, {
+  const githubOriginal = "5.87 22 8.8 22 8.8 19.07 7.43 19.07 5.87 19.07 5.87 17.6 4.4 17.6 4.4 16.13 5.87 16.13 5.87 17.6 7.46 17.6 10.27 17.6 10.27 16.13 7.33 16.15 7.33 14.67 5.87 14.67 5.87 13.2 4.4 13.2 4.4 8.8 5.87 8.8 5.87 7.33 4.4 7.33 4.4 5.87 5.92 5.87 7.33 5.87 7.33 7.33 8.8 7.33 8.8 5.87 13.2 5.87 13.2 7.33 14.67 7.33 14.67 5.87 16.14 5.87 17.6 5.87 17.6 7.33 16.13 7.33 16.13 8.8 17.6 8.8 17.6 13.2 16.13 13.2 16.13 14.67 14.67 14.67 14.67 16.13 11.73 16.13 11.73 17.6 13.2 17.6 13.2 22 16.13 22 16.13 20.53 17.6 20.53 17.6 19.07 19.07 19.07 19.07 17.6 20.53 17.6 20.53 16.13 22 16.13 22 7.33 20.53 7.33 20.53 4.4 17.6 4.4 17.6 1.47 14.67 1.47 14.67 0 7.33 0 7.33 1.47 4.4 1.47 4.4 2.93 2.93 2.93 2.93 4.4 1.47 4.4 1.47 7.33 0 7.33 0 16.13 1.47 16.13 1.47 17.6 2.93 17.6 2.93 19.07 4.4 19.07 4.4 20.53 5.87 20.53 5.87 22";
+  const githubHover = "5.87 22 8.8 22 8.8 19.07 7.43 19.07 5.87 19.07 5.86 20.45 4.4 20.45 4.4 18.98 5.87 18.98 5.87 17.6 7.46 17.6 10.27 17.6 10.25 15.69 7.37 15.15 7.66 13.69 6.22 13.41 6.5 11.97 5.06 11.69 5.9 7.38 7.34 7.66 7.62 6.22 6.18 5.94 6.46 4.5 7.95 4.79 9.33 5.06 9.05 6.5 10.49 6.78 10.77 5.34 15.09 6.18 14.81 7.62 16.25 7.9 16.53 6.46 17.98 6.74 19.41 7.02 19.13 8.46 17.69 8.18 17.41 9.61 18.85 9.89 18.01 14.21 16.57 13.93 16.29 15.37 14.85 15.09 14.57 16.53 11.69 15.97 11.73 17.6 13.2 17.6 13.2 22 16.13 22 16.13 20.53 17.6 20.53 17.6 19.07 19.07 19.07 19.07 17.6 20.53 17.6 20.53 16.13 22 16.13 22 7.33 20.53 7.33 20.53 4.4 17.6 4.4 17.6 1.47 14.67 1.47 14.67 0 7.33 0 7.33 1.47 4.4 1.47 4.4 2.93 2.93 2.93 2.93 4.4 1.47 4.4 1.47 7.33 0 7.33 0 16.13 1.47 16.13 1.47 17.6 2.93 17.6 2.93 19.07 4.4 19.07 4.4 20.53 5.87 20.53 5.87 22";
+
+  const hoverOn = useRef(false);
+  const tweens = useRef({
+    hover: { linkedin: null, github: null },
+    pulse: { linkedin: null, github: null },
+  });
+
+  // next time (ms) when a pulse may start
+  const nextAtRef = useRef(performance.now() + 4000 + Math.random() * 4000);
+
+  const ease = "power2.inOut";
+  const killPulse = (key) => {
+    tweens.current.pulse[key]?.kill();
+    tweens.current.pulse[key] = null;
+  };
+  const killHover = (key) => {
+    tweens.current.hover[key]?.kill();
+    tweens.current.hover[key] = null;
+  };
+
+  const startHover = (key, el, fromPts, toPts) => {
+    hoverOn.current = true;
+
+    // cancel any pulse on this icon, but DO NOT stop the scheduler
+    killPulse(key);
+    killHover(key);
+    gsap.killTweensOf(el);
+
+    // start infinite yoyo immediately
+    gsap.set(el, { attr: { points: fromPts } });
+    tweens.current.hover[key] = gsap.to(el, {
       duration: 0.6,
-      attr: { points: originalPath },
-      ease: "power2.inOut",
+      attr: { points: toPts },
+      repeat: -1,
+      yoyo: true,
+      ease,
+      overwrite: "auto",
     });
-  }
-
-  let isHovering = false;
-  const tweenRefs = useRef({ github: null, linkedin: null });
-  const handleEnter = (hoverPath, pathRef, key, originalPath) => {
-    isHovering = true;
-    let timeout = 0
-    if (gsap.isTweening(pathRef?.current)) {
-      resetAnimation(originalPath, pathRef, key);
-      timeout = 1200;
-    };
-
-    setTimeout(() => {
-      tweenRefs.current[key] = gsap.to(pathRef?.current, {
-        duration: 0.6,
-        attr: { points: hoverPath },
-        repeat: -1,
-        yoyo: true,
-        ease: "power2.inOut",
-      });
-    }, timeout);
-
   };
 
-  const handleLeave = (originalPath, pathRef, key) => {
-    isHovering = false;
-    resetAnimation(originalPath, pathRef, key);
+  const endHover = (key, el, fromPts) => {
+    hoverOn.current = false;
+    killHover(key);
+    gsap.killTweensOf(el);
+    gsap.to(el, { duration: 0.5, attr: { points: fromPts }, ease, overwrite: "auto" });
+
+    // (optional) make the next random pulse come sooner after hover ends
+    nextAtRef.current = performance.now() + 900; // ~1s
   };
+
+  const pulseOnce = (el, toPts) =>
+    gsap.to(el, {
+      duration: 1,
+      attr: { points: toPts },
+      repeat: 1,
+      yoyo: true,
+      repeatDelay: 0.25,
+      ease,
+      overwrite: "auto",
+      onComplete: () => gsap.killTweensOf(el),
+    });
 
   useEffect(() => {
-    let timeoutId;
-    const playRandom = () => {
-      const key = Math.random() < 0.5 ? "github" : "linkedin";
-      if (!isHovering) {
-        const pathRef = key === "github" ? githubPathRef : pathRef2;
-        const to = key === "github" ? githubHoverPath : linkedinHoverPath;
-        const from = key === "github" ? githubOriginaPath : linkedinOriginaPath;
-        const ease = "power2.inOut";
+    // single, persistent scheduler via ticker
+    const tick = () => {
+      const now = performance.now();
+      if (hoverOn.current) return; // do nothing while hovering
 
-        resetAnimation(from, pathRef, key);
-        setTimeout(() => {
-          gsap.to(pathRef.current, { duration: 1, attr: { points: to }, yoyo: true, repeatDelay: 0.3, repeat: 1, ease, overwrite: "auto" });
-          setTimeout(() => {
-            tweenRefs?.current[key]?.kill();
-            gsap.killTweensOf(pathRef?.current);
-          }, 2000);
-        }, 1200);
+      // only start a new pulse when the cooldown passes and no pulses are active
+      const anyPulseActive =
+        tweens.current.pulse.github || tweens.current.pulse.linkedin;
 
+      if (!anyPulseActive && now >= nextAtRef.current) {
+        const pickGithub = Math.random() < 0.5;
+        const key = pickGithub ? "github" : "linkedin";
+        const el = pickGithub ? githubRef.current : linkedinRef.current;
+        const from = pickGithub ? githubOriginal : linkedinOriginal;
+        const to = pickGithub ? githubHover : linkedinHover;
+        if (!el) return;
+
+        gsap.set(el, { attr: { points: from } });
+        killPulse(key);
+        tweens.current.pulse[key] = pulseOnce(el, to);
+
+        // schedule next allowed time 4–8s from now
+        nextAtRef.current = now + 4000 + Math.random() * 4000;
+
+        // extra safety: clear the ref when the pulse finishes
+        tweens.current.pulse[key].eventCallback("onComplete", () => {
+          killPulse(key);
+        });
       }
-      const nextIn = 4000 + Math.random() * 4000; // 2–6 seconds
-      timeoutId = setTimeout(playRandom, nextIn);
     };
-    playRandom();
-    return () => clearTimeout(timeoutId);
-  }, []);
 
+    gsap.ticker.add(tick);
+    return () => {
+      gsap.ticker.remove(tick);
+      ["github", "linkedin"].forEach((k) => {
+        killPulse(k);
+        killHover(k);
+      });
+    };
+  }, []);
 
   return (
     <my-info>
-      <a href='https://maps.app.goo.gl/x3sXfvjR3T7JYNuHA' target='_blank'><p className="location">Curitiba,Brazil</p></a>
+      <a href='https://maps.app.goo.gl/x3sXfvjR3T7JYNuHA' target='_blank' rel="noreferrer">
+        <p className="location">Curitiba, Brazil</p>
+      </a>
+
       <social-buttons>
-        <a href='https://www.linkedin.com/in/twuestefeld/' target='_blank'>
-          <svg onMouseEnter={() => handleEnter(githubHoverPath, githubPathRef, 'linkedin', githubOriginaPath)} onMouseLeave={() => handleLeave(githubOriginaPath, githubPathRef, 'linkedin')}
-            width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon ref={githubPathRef} points={githubOriginaPath} fill="hsl(120, 73%, 54%)" />
+        <a href='https://www.linkedin.com/in/twuestefeld/' target='_blank' rel="noreferrer">
+          <svg
+            onMouseEnter={() => startHover("linkedin", linkedinRef.current, linkedinOriginal, linkedinHover)}
+            onMouseLeave={() => endHover("linkedin", linkedinRef.current, linkedinOriginal)}
+            width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+          >
+            <polygon ref={linkedinRef} points={linkedinOriginal} fill="hsl(120, 73%, 54%)" />
           </svg>
         </a>
-        <a href='https://github.com/Coldobird' target='_blank'>
-          <svg onMouseEnter={() => handleEnter(linkedinHoverPath, pathRef2, 'linkedin', linkedinOriginaPath)} onMouseLeave={() => handleLeave(linkedinOriginaPath, pathRef2, 'linkedin')}
-            width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon ref={pathRef2} points={linkedinOriginaPath} fill="hsl(120, 73%, 54%)" />
+
+        <a href='https://github.com/Coldobird' target='_blank' rel="noreferrer">
+          <svg
+            onMouseEnter={() => startHover("github", githubRef.current, githubOriginal, githubHover)}
+            onMouseLeave={() => endHover("github", githubRef.current, githubOriginal)}
+            width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+          >
+            <polygon ref={githubRef} points={githubOriginal} fill="hsl(120, 73%, 54%)" />
           </svg>
         </a>
       </social-buttons>
     </my-info>
-  )
+  );
 }
 
 function NavButton({ id, selected, onSelect, children }) {
