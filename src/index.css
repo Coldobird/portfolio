@@ -200,7 +200,8 @@ nav-bar-sublist+nav-bar-subtitle {
 
 nav-bar-title,
 nav-bar-subtitle,
-skills-title {
+skills-title,
+skills-item {
   color: var(--main-mid);
 }
 
