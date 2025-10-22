@@ -6,7 +6,7 @@
 
 * {
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 html,
@@ -64,6 +64,18 @@ h6 {
   font-size: inherit
 }
 
+::selection {
+  background: var(--main);
+  color: black;
+}
+
+vr {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background-color: var(--main);
+}
+
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root {
@@ -71,7 +83,10 @@ h6 {
   --main-mid: hsla(120, 73%, 30%);
   --main-dark: hsl(120, 73%, 14%);
   --glow: #33FF3330;
-  --glow-strong: #33FF3360;
+  --glow-color-strong: #33FF3360;
+
+  --glow-strong: 0 0 6px 1px var(--glow-color-strong);
+  --glow-stronger: 0 0 24px 1px var(--glow-color-strong);
 }
 
 body {
@@ -134,6 +149,7 @@ app-container::after {
 nav-bar {
   display: flex;
   flex-direction: column;
+  width: min-content;
   min-width: 368px;
   padding: 10px;
 }
@@ -241,7 +257,7 @@ nav-bar-button {
   50%,
   100% {
     background-color: var(--main);
-    box-shadow: 0 0 6px 1px var(--glow-strong);
+    box-shadow: 0 0 6px 1px var(--glow-color-strong);
   }
 }
 
@@ -258,7 +274,7 @@ nav-bar-button::after {
 
 nav-bar-button.selected::after {
   background-color: var(--main);
-  box-shadow: 0 0 6px 1px var(--glow-strong);
+  box-shadow: 0 0 6px 1px var(--glow-color-strong);
   animation: ativatePulse .2s linear;
 }
 
@@ -302,8 +318,13 @@ skills-list:nth-child(2) {
   padding-left: 32px;
 }
 
+skills-list:last-child {
+  flex-basis: 50%;
+}
+
 skills-item {
   white-space: nowrap;
+  display: inline-block;
 }
 
 p.location {

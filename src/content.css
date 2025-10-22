@@ -1,13 +1,35 @@
-content {
+my-content {
   width: 100%;
-  border-left: var(--main) 1px solid;
+  margin-inline: auto;
   padding: 42px;
   display: flex;
   flex-direction: column;
   gap: 22px;
+  max-width: 75ch;
+  box-sizing: content-box;
+  overflow: clip;
+  line-height: 1.2;
 }
 
-content a {
+my-content img {
+  width: 100%;
+  max-width: 700px;
+  border: 1px solid var(--main);
+  border-radius: 8px;
+  /* box-shadow: 0 0 12px rgba(0, 255, 136, 0.2); */
+  box-shadow: var(--glow-stronger);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+my-content a {
   text-decoration: underline var(--main) 1px solid;
   cursor: pointer;
+  user-select: text;
+}
+
+my-content p {
+  display: inline;
+  overflow: clip;
+  white-space: normal;
 }

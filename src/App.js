@@ -11,6 +11,7 @@ export default function App() {
       <CrtEffect>
       </CrtEffect>
       <NavBar selected={selected} onSelect={setSelected} />
+      <vr />
       <Content selected={selected} />
       <back-ground></back-ground>
     </app-container>

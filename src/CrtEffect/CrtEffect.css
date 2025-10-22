@@ -34,7 +34,7 @@ crt-grain {
   filter: url(#crt-noise);
   mix-blend-mode: overlay;
   opacity: 0.06;
-  animation: crt-flicker 2.2s infinite;
+  animation: crt-flicker 5s infinite;
   z-index: 2;
   pointer-events: none;
 }
