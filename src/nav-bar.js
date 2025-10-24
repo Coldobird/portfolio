@@ -252,7 +252,7 @@ function NavBarList({ selected, onSelect }) {
               selected={selected === 'proj:scout-check'}
               onSelect={onSelect}
             >
-              Scout Membership Check- Personal
+              Scout Membership Check - Personal
             </NavButton>
           </nav-bar-sublist>
         </nav-bar-sublist>
