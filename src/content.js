@@ -19,11 +19,11 @@ export default function Content({ selected }) {
         <content-container>
           <content-container2>
 
-            <h2>Front-End Developer & Designer @ Jux House<br />
-              Jan 2020 - Present<br />
-              JavaScript, HTML, CSS, Node.js<br />
-              ---------------------------------------------------------------------------
-            </h2>
+            <p className='style-pre'>
+              ┌─Front-End Developer & Designer @Jux House─┐<br />
+              │ Jan 2020 - Present                        │<br />
+              └─JavaScript, HTML, CSS, Node.js────────────┘<br />
+            </p>
 
             <text-container>
               <p>
