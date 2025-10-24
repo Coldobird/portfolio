@@ -1,0 +1,35 @@
+/* === Scrollbar container === */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-mid) transparent;
+}
+
+/* === WebKit Scrollbar === */
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, var(--main-dark), #000);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--main), var(--main));
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--main), var(--main));
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, var(--main), var(--main));
+}
+
+/* === Corner (when both axes are visible) === */
+*::-webkit-scrollbar-corner {
+  background: var(--main-dark);
+}

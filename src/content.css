@@ -1,4 +1,9 @@
-my-content {
+content-container {
+  width: 100%;
+  overflow: auto;
+}
+
+content-container2 {
   width: 100%;
   margin-inline: auto;
   padding: 42px;
@@ -9,9 +14,10 @@ my-content {
   box-sizing: content-box;
   overflow: clip;
   line-height: 1.2;
+  overflow: auto;
 }
 
-my-content img {
+content-container img {
   width: 100%;
   max-width: 700px;
   border: 1px solid var(--main);
@@ -22,14 +28,24 @@ my-content img {
   user-select: none;
 }
 
-my-content a {
+content-container a {
   text-decoration: underline var(--main) 1px solid;
   cursor: pointer;
   user-select: text;
 }
 
-my-content p {
+content-container p {
   display: inline;
   overflow: clip;
   white-space: normal;
+}
+
+text-container {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+img-caption {
+  color: var(--main-mid);
 }
