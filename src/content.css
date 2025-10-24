@@ -13,8 +13,14 @@ content-container2 {
   max-width: 75ch;
   box-sizing: content-box;
   overflow: clip;
-  line-height: 1.2;
+  line-height: 1.4;
   overflow: auto;
+}
+
+content-container .style-pre {
+  line-height: 1;
+  white-space: pre;
+  overflow: visible;
 }
 
 content-container img {
