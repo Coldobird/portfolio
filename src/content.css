@@ -3,6 +3,14 @@ content-container {
   overflow: auto;
 }
 
+new-section {
+  margin-block: 52px;
+}
+
+img-container {
+  margin-bottom: 24px;
+}
+
 content-container2 {
   width: 100%;
   margin-inline: auto;

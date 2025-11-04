@@ -22,19 +22,67 @@ export default function Content({ selected }) {
             <p className='style-pre'>
               ┌─Front-End Developer & Designer @Jux House─┐<br />
               │ Jan 2020 - Present                        │<br />
-              └─JavaScript, HTML, CSS, Node.js────────────┘<br />
+              └─JavaScript, HTML, CSS, PlayWright─────────┘<br />
             </p>
 
             <text-container>
               <p>
                 I’ve been part of a small team at Jux House since 2020, building tools that make code easier to see and understand.<br />
-                Most of my time goes into BELA, our web app for visualizing code architecture. I design and develop its interface, keeping things simple and clear so users can focus on the logic, not the layout.<br />
+                Most of my time goes into BELA, our web app for visualizing code architecture. I design and develop its interface, keeping things simple and clear so users can focus on the logic.<br />
               </p>
               <img-container>
                 <img src="/placeholder.png" alt="Screenshot of BELA in action — google maps for your code" style={{ width: '100%', borderRadius: '8px' }} />
                 <img-caption>Screenshot of BELA in action</img-caption>
               </img-container>
             </text-container>
+
+            <new-section />
+
+            <p className='style-pre'>
+              ┌─Uploading and showing things is hard─┐<br />
+              └──────────────────────────────────────┘<br />
+            </p>
+
+            <text-container>
+              <p>
+                One of the hardest pages to build was the Sources page.
+                It’s where you can see all the sources you’ve imported and remove them if needed.
+                I wanted it to feel simple, but still give enough control when things get messy.
+              </p>
+
+              <img-container>
+                <img src="/placeholder.png" alt="Screenshot of the Sources page" style={{ width: '100%', borderRadius: '8px' }} />
+                <img-caption>The Sources page</img-caption>
+              </img-container>
+
+              <p>
+                By selecting a source, you can see more details about it.
+                That part took a while to get right.
+              </p>
+
+              <img-container>
+                <img src="/placeholder.png" alt="Screenshot inspecting a source" style={{ width: '100%', borderRadius: '8px' }} />
+                <img-caption>Inspecting a source</img-caption>
+              </img-container>
+
+              <p>
+                I also really like how the upload button turned out.
+                Uploads can take a few seconds, so I added a small animation to make that wait feel smoother, like a bit of feedback saying “hey, I’m working on it!”.
+                I also learned how to use XHR to track the upload progress, which made it possible to show the exact percentage while the file is being sent.
+              </p>
+
+              <img-container>
+                <img src="/placeholder.png" alt="Screenshot showing the animated upload button" style={{ width: '100%', borderRadius: '8px' }} />
+                <img-caption>⚙️ Animated upload button</img-caption>
+              </img-container>
+
+              <p>
+                I learned a lot about handling uploads and organizing large amounts of information in a way that still feels simple to use.
+                Keeping everything readable while showing a lot of data was a real challenge, but it pushed me to think more about structure and clarity in design.
+              </p>
+            </text-container>
+
+
 
             <new-section />
 
