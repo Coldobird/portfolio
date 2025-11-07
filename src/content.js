@@ -73,7 +73,7 @@ export default function Content({ selected }) {
 
               <img-container>
                 <img src="/placeholder.png" alt="Screenshot showing the animated upload button" style={{ width: '100%', borderRadius: '8px' }} />
-                <img-caption>⚙️ Animated upload button</img-caption>
+                <img-caption>Animated upload button</img-caption>
               </img-container>
 
               <p>
@@ -82,6 +82,44 @@ export default function Content({ selected }) {
               </p>
             </text-container>
 
+            <new-section />
+
+
+            <p className='style-pre'>
+              ┌─BELA Landing Page─┐<br />
+              └───────────────────┘<br />
+            </p>
+
+            <text-container>
+              <p>
+                I built the <a href="https://bela.live" target="_blank">BELA landing page</a> to explain what the tool does in a clear, visual way.
+                The main goal was to make a complex idea—visualizing code architecture—feel simple and approachable.
+              </p>
+
+              <img-container>
+                <img src="/placeholder.png" alt="Screenshot of the BELA landing page" style={{ width: '100%', borderRadius: '8px' }} />
+                <img-caption>Screenshot of bela.live</img-caption>
+              </img-container>
+
+              <p>
+                I focused on smooth animations and clean typography to tell a story as you scroll.
+                Each section introduces a concept—like seeing dependencies or spotting potential issues—without overwhelming the viewer with technical language.
+              </p>
+
+              <p>
+                I also optimized for performance: the page loads in under a second and gets near-perfect Lighthouse scores.
+                That meant cleaning up the image sizes, deferring scripts, and rethinking how animations trigger to avoid layout shifts.
+              </p>
+
+              <img-container>
+                <img src="/placeholder.png" alt="Example of smooth scroll animation on bela.live" style={{ width: '100%', borderRadius: '8px' }} />
+                <img-caption>Subtle motion helps explain each feature</img-caption>
+              </img-container>
+
+              <p>
+                Building this page taught me a lot about visual storytelling and how design details—timing, pacing, color—can make technical ideas more inviting.
+              </p>
+            </text-container>
 
 
             <new-section />
