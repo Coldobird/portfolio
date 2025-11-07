@@ -92,8 +92,8 @@ export default function Content({ selected }) {
 
             <text-container>
               <p>
-                I built the <a href="https://bela.live" target="_blank">BELA landing page</a> to explain what the tool does in a clear, visual way.
-                The main goal was to make a complex idea—visualizing code architecture—feel simple and approachable.
+                I built the <a href="https://bela.live" target="_blank">BELA landing page</a> to explain what the tool does and why it’s different.
+                BELA automatically generates C4-style architecture diagrams straight from code, so the challenge was showing that idea clearly, since there isn’t really anything like it out there.
               </p>
 
               <img-container>
@@ -102,37 +102,31 @@ export default function Content({ selected }) {
               </img-container>
 
               <p>
-                I focused on smooth animations and clean typography to tell a story as you scroll.
-                Each section introduces a concept—like seeing dependencies or spotting potential issues—without overwhelming the viewer with technical language.
+                Instead of comparing it to other diagram tools, the goal was to show how BELA fits into a developer's workflow.
+                It is less about drawing boxes and more about revealing the real structure behind the code.
+                I used motion and section pacing to guide the viewer through that concept step by step.
               </p>
 
+              {/* seria legal se verdade ojasdpjaspodj então vamos fazer ser! */}
               <p>
-                I also optimized for performance: the page loads in under a second and gets near-perfect Lighthouse scores.
-                That meant cleaning up the image sizes, deferring scripts, and rethinking how animations trigger to avoid layout shifts.
+                I also worked on keeping the site light and fast.
+                It loads in under a second and scores near perfect in Lighthouse.
+                That came down to optimizing images, deferring scripts, and making animations run smoothly without layout shifts.
               </p>
 
               <img-container>
                 <img src="/placeholder.png" alt="Example of smooth scroll animation on bela.live" style={{ width: '100%', borderRadius: '8px' }} />
-                <img-caption>Subtle motion helps explain each feature</img-caption>
+                <img-caption>Scroll animations help tell the story of how BELA works</img-caption>
               </img-container>
 
               <p>
-                Building this page taught me a lot about visual storytelling and how design details—timing, pacing, color—can make technical ideas more inviting.
+                Building this page made me think a lot about how to communicate what makes this tool diferent from others.
+                I focused on verbal clarity and keeping performance in check.
               </p>
             </text-container>
 
 
             <new-section />
-
-            <text-container>
-              <p>
-                Sometimes, I jump into other projects like landing pages and internal tools, experimenting with ideas and improving small details that make the experience smoother.
-              </p>
-              <img-container>
-                <img src="/placeholder.png" alt="Screenshot of BELA in action — google maps for your code" style={{ width: '100%', borderRadius: '8px' }} />
-                <img-caption>Screenshot of BELA in action</img-caption>
-              </img-container>
-            </text-container>
           </content-container2>
         </content-container>
       );
