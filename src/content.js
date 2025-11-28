@@ -1,4 +1,5 @@
 import './content.css';
+import placeholderImg from './midia/imgs/placeholder.png';
 
 export default function Content({ selected }) {
   switch (selected) {
@@ -31,7 +32,7 @@ export default function Content({ selected }) {
                 Most of my time goes into BELA, our web app for visualizing code architecture. I design and develop its interface, keeping things simple and clear so users can focus on the logic.<br />
               </p>
               <img-container>
-                <img src="/placeholder.png" alt="Screenshot of BELA in action — google maps for your code" style={{ width: '100%', borderRadius: '8px' }} />
+                <img src={placeholderImg} alt="Screenshot of BELA in action — google maps for your code" style={{ width: '100%', borderRadius: '8px' }} />
                 <img-caption>Screenshot of BELA in action</img-caption>
               </img-container>
             </text-container>
@@ -51,7 +52,7 @@ export default function Content({ selected }) {
               </p>
 
               <img-container>
-                <img src="/placeholder.png" alt="Screenshot of the Sources page" style={{ width: '100%', borderRadius: '8px' }} />
+                <img src={placeholderImg} alt="Screenshot of the Sources page" style={{ width: '100%', borderRadius: '8px' }} />
                 <img-caption>The Sources page</img-caption>
               </img-container>
 
@@ -61,7 +62,7 @@ export default function Content({ selected }) {
               </p>
 
               <img-container>
-                <img src="/placeholder.png" alt="Screenshot inspecting a source" style={{ width: '100%', borderRadius: '8px' }} />
+                <img src={placeholderImg} alt="Screenshot inspecting a source" style={{ width: '100%', borderRadius: '8px' }} />
                 <img-caption>Inspecting a source</img-caption>
               </img-container>
 
@@ -72,7 +73,7 @@ export default function Content({ selected }) {
               </p>
 
               <img-container>
-                <img src="/placeholder.png" alt="Screenshot showing the animated upload button" style={{ width: '100%', borderRadius: '8px' }} />
+                <img src={placeholderImg} alt="Screenshot showing the animated upload button" style={{ width: '100%', borderRadius: '8px' }} />
                 <img-caption>Animated upload button</img-caption>
               </img-container>
 
@@ -97,7 +98,7 @@ export default function Content({ selected }) {
               </p>
 
               <img-container>
-                <img src="/placeholder.png" alt="Screenshot of the BELA landing page" style={{ width: '100%', borderRadius: '8px' }} />
+                <img src={placeholderImg} alt="Screenshot of the BELA landing page" style={{ width: '100%', borderRadius: '8px' }} />
                 <img-caption>Screenshot of bela.live</img-caption>
               </img-container>
 
@@ -115,7 +116,7 @@ export default function Content({ selected }) {
               </p>
 
               <img-container>
-                <img src="/placeholder.png" alt="Example of smooth scroll animation on bela.live" style={{ width: '100%', borderRadius: '8px' }} />
+                <img src={placeholderImg} alt="Example of smooth scroll animation on bela.live" style={{ width: '100%', borderRadius: '8px' }} />
                 <img-caption>Scroll animations help tell the story of how BELA works</img-caption>
               </img-container>
 
